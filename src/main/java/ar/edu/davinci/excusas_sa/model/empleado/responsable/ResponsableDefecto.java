@@ -1,7 +1,7 @@
-package edu.davinci.empleado.responsable;
+package ar.edu.davinci.excusas_sa.model.empleado.responsable;
 
-import edu.davinci.excusa.Excusa;
-import edu.davinci.modo.DeliveryModo;
+import ar.edu.davinci.excusas_sa.model.excusa.Excusa;
+import ar.edu.davinci.excusas_sa.model.modo.DeliveryModo;
 
 public class ResponsableDefecto extends Responsable{
 

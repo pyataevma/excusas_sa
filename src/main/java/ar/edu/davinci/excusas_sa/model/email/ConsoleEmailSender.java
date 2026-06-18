@@ -1,4 +1,4 @@
-package edu.davinci.email;
+package ar.edu.davinci.excusas_sa.model.email;
 
 public class ConsoleEmailSender implements EmailSender {
     @Override

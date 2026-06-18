@@ -1,6 +1,6 @@
-package edu.davinci.prontuario;
+package ar.edu.davinci.excusas_sa.model.prontuario;
 
-import edu.davinci.excusa.Excusa;
+import ar.edu.davinci.excusas_sa.model.excusa.Excusa;
 
 public class Prontuario {
     Excusa excusa;

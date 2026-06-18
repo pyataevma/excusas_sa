@@ -1,6 +1,6 @@
-package edu.davinci.empleado.responsable;
+package ar.edu.davinci.excusas_sa.model.empleado.responsable;
 
-import edu.davinci.excusa.Excusa;
+import ar.edu.davinci.excusas_sa.model.excusa.Excusa;
 
 public interface IResponsable {
     void revisarExcusa(Excusa unaExcusa);

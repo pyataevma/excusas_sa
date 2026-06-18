@@ -1,4 +1,4 @@
-package edu.davinci.empleado;
+package ar.edu.davinci.excusas_sa.model.empleado;
 
 
 public class Empleado {

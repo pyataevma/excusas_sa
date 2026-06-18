@@ -1,13 +1,13 @@
-package edu.davinci.empleado.responsable;
+package ar.edu.davinci.excusas_sa.model.empleado.responsable;
 
-import edu.davinci.email.ConsoleEmailSender;
-import edu.davinci.email.EmailSender;
-import edu.davinci.empleado.Empleado;
-import edu.davinci.excusa.Excusa;
-import edu.davinci.modo.DeliveryModo;
-import edu.davinci.modo.Modo;
-import edu.davinci.modo.ModoNormal;
-import edu.davinci.modo.ModoProductivx;
+import ar.edu.davinci.excusas_sa.model.email.ConsoleEmailSender;
+import ar.edu.davinci.excusas_sa.model.email.EmailSender;
+import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
+import ar.edu.davinci.excusas_sa.model.excusa.Excusa;
+import ar.edu.davinci.excusas_sa.model.modo.DeliveryModo;
+import ar.edu.davinci.excusas_sa.model.modo.Modo;
+import ar.edu.davinci.excusas_sa.model.modo.ModoNormal;
+import ar.edu.davinci.excusas_sa.model.modo.ModoProductivx;
 
 public abstract class Responsable extends Empleado implements IResponsable {
     private static final int MIN_MINUTOS_BREAK = 10;

@@ -1,8 +1,8 @@
-package edu.davinci.excusa;
+package ar.edu.davinci.excusas_sa.model.excusa;
 
-import edu.davinci.email.ConsoleEmailSender;
-import edu.davinci.email.EmailSender;
-import edu.davinci.empleado.Empleado;
+import ar.edu.davinci.excusas_sa.model.email.ConsoleEmailSender;
+import ar.edu.davinci.excusas_sa.model.email.EmailSender;
+import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
 
 import java.time.LocalDateTime;
 

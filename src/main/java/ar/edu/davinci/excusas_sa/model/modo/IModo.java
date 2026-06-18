@@ -1,7 +1,7 @@
-package edu.davinci.modo;
+package ar.edu.davinci.excusas_sa.model.modo;
 
-import edu.davinci.empleado.responsable.Responsable;
-import edu.davinci.excusa.Excusa;
+import ar.edu.davinci.excusas_sa.model.empleado.responsable.Responsable;
+import ar.edu.davinci.excusas_sa.model.excusa.Excusa;
 
 public interface IModo {
     void procesarExcusa(Responsable unResponsable, Excusa unaExcusa);

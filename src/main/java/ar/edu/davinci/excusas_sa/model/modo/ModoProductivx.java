@@ -1,9 +1,9 @@
-package edu.davinci.modo;
+package ar.edu.davinci.excusas_sa.model.modo;
 
-//import edu.davinci.email.ConsoleEmailSender;
-//import edu.davinci.email.EmailSender;
-import edu.davinci.empleado.responsable.Responsable;
-import edu.davinci.excusa.Excusa;
+//import ar.edu.email.davinci.edu.ConsoleEmailSender;
+//import ar.edu.email.davinci.edu.EmailSender;
+import ar.edu.davinci.excusas_sa.model.empleado.responsable.Responsable;
+import ar.edu.davinci.excusas_sa.model.excusa.Excusa;
 
 
 public class ModoProductivx extends Modo {

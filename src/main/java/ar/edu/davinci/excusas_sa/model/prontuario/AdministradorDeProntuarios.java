@@ -1,12 +1,12 @@
-package edu.davinci.prontuario;
+package ar.edu.davinci.excusas_sa.model.prontuario;
 
-import edu.davinci.email.ConsoleEmailSender;
-import edu.davinci.email.EmailSender;
-import edu.davinci.empleado.responsable.Ceo;
+import ar.edu.davinci.excusas_sa.model.email.ConsoleEmailSender;
+import ar.edu.davinci.excusas_sa.model.email.EmailSender;
+import ar.edu.davinci.excusas_sa.model.empleado.responsable.Ceo;
 
 import java.util.ArrayList;
 
-//import static edu.davinci.email.EmailSender.enviarEmail;
+//import static ar.edu.email.davinci.edu.EmailSender.enviarEmail;
 
 public class AdministradorDeProntuarios {
     private final ArrayList<Prontuario> prontuarios;

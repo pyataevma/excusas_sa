@@ -1,7 +1,7 @@
-package edu.davinci.excusa;
+package ar.edu.davinci.excusas_sa.model.excusa;
 
-import edu.davinci.empleado.Empleado;
-import edu.davinci.empleado.responsable.Responsable;
+import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
+import ar.edu.davinci.excusas_sa.model.empleado.responsable.Responsable;
 
 public class ExcusaTrivial extends Excusa {
 
