@@ -10,5 +10,5 @@ public abstract class Modo implements IModo{
     @Override
     public boolean esAdecuado(Responsable unResponsable){
         return false;
-    };
+    }
 }
