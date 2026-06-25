@@ -27,7 +27,7 @@ public abstract class Excusa implements IExcusa {
     @Override
     public boolean esTrivial() {
         return false;
-    };
+    }
     @Override
     public boolean esModerada() {
         return false;
