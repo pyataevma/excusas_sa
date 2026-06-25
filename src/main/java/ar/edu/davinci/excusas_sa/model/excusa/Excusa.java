@@ -3,15 +3,26 @@ package ar.edu.davinci.excusas_sa.model.excusa;
 import ar.edu.davinci.excusas_sa.model.email.ConsoleEmailSender;
 import ar.edu.davinci.excusas_sa.model.email.EmailSender;
 import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Excusa implements IExcusa {
-    private final Empleado empleado;
-    private final String texto;
-    private final LocalDateTime fecha;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    private  Empleado empleado;
+
+    private  String texto;
+    private LocalDateTime fecha;
     private Boolean aceptada;
-    protected final EmailSender emailSender = new ConsoleEmailSender();
+    @Transient
+    protected EmailSender emailSender = new ConsoleEmailSender();
 
     @Override
     public boolean esTrivial() {
@@ -27,6 +38,8 @@ public abstract class Excusa implements IExcusa {
     public boolean esInverosimil(){
         return false;
     }
+
+    protected Excusa() {}
 
     public Excusa(Empleado empleado, String texto){
         this.empleado = empleado;

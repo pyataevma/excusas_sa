@@ -10,16 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/empleados")
-//public class EmpleadoController {
-//        @Autowired
-//        private UsuarioService usuarioService;
-//        public UsuarioController(UsuarioService usuarioService){
-//            this.usuarioService = usuarioService;
-//        }
-
 public class EmpleadoController {
 
-    private final EmpleadoService empleadoService;
+    @Autowired
+    private EmpleadoService empleadoService;
 
     public EmpleadoController(EmpleadoService empleadoService) {
         this.empleadoService = empleadoService;
@@ -31,9 +25,7 @@ public class EmpleadoController {
     }
 
     @PostMapping
-    public Empleado createEmpleado(
-            @RequestBody Empleado empleado) {
-
+    public Empleado createEmpleado(@RequestBody Empleado empleado) {
         return empleadoService.guardar(empleado);
     }
 }

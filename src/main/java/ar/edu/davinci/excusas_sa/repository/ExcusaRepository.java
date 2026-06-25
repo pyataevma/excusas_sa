@@ -1,9 +1,9 @@
 package ar.edu.davinci.excusas_sa.repository;
-import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
+
+import ar.edu.davinci.excusas_sa.model.excusa.Excusa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
-
+public interface ExcusaRepository extends JpaRepository<Excusa, Long> {
 }
