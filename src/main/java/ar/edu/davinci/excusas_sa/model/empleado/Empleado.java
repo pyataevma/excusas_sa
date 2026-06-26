@@ -14,6 +14,7 @@ public class Empleado {
     private Long id;
     private String nombre;
     private String email;
+
     private String legajo;
 
     public Empleado(String nombre, String email, String legajo){
@@ -28,5 +29,13 @@ public class Empleado {
 
     public String getEmail() {
         return email;
+    }
+
+    public Long getId() { return id; }
+
+    public String getNombre() { return nombre; }
+
+    public String getLegajo() {
+        return legajo;
     }
 }

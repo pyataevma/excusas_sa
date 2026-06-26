@@ -1,5 +1,6 @@
 package ar.edu.davinci.excusas_sa.controller;
 
+import ar.edu.davinci.excusas_sa.model.dto.EmpleadoDTO;
 import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
 import ar.edu.davinci.excusas_sa.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("/empleados")
 public class EmpleadoController {
 
-    @Autowired
+    //@Autowired
     private EmpleadoService empleadoService;
 
     public EmpleadoController(EmpleadoService empleadoService) {
@@ -20,13 +21,13 @@ public class EmpleadoController {
     }
 
     @GetMapping
-    public List<Empleado> getAllEmpleados() {
+    public List<EmpleadoDTO> getAllEmpleados() {
         return empleadoService.obtenerTodos();
     }
 
     @PostMapping
-    public Empleado createEmpleado(@RequestBody Empleado empleado) {
-        return empleadoService.guardar(empleado);
+    public EmpleadoDTO createEmpleado(@RequestBody EmpleadoDTO dto) {
+        return empleadoService.guardar(dto);
     }
 }
 

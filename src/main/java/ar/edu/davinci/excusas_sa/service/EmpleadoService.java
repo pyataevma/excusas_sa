@@ -1,5 +1,6 @@
 package ar.edu.davinci.excusas_sa.service;
 
+import ar.edu.davinci.excusas_sa.model.dto.EmpleadoDTO;
 import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
 import ar.edu.davinci.excusas_sa.repository.EmpleadoRepository;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,35 @@ public class EmpleadoService {
         this.repository = repository;
     }
 
-    public List<Empleado> obtenerTodos() {
-        return repository.findAll();
+    public List<EmpleadoDTO> obtenerTodos() {
+
+        return repository.findAll()
+                .stream()
+                .map(this::toDTO)
+                .toList();
     }
 
-    public Empleado guardar(Empleado empleado) {
-        return repository.save(empleado);
+    public EmpleadoDTO guardar(EmpleadoDTO dto) {
+
+        Empleado empleado = toEntity(dto);
+
+        Empleado guardado = repository.save(empleado);
+
+        return toDTO(guardado);
     }
-}
+
+    private EmpleadoDTO toDTO(Empleado empleado) {
+        return new EmpleadoDTO(
+                empleado.getNombre(),
+                empleado.getEmail(),
+                empleado.getLegajo()
+        );
+    }
+
+    private Empleado toEntity(EmpleadoDTO dto) {
+        return new Empleado(
+                dto.getNombre(),
+                dto.getEmail(),
+                dto.getLegajo()
+        );
+    }}
