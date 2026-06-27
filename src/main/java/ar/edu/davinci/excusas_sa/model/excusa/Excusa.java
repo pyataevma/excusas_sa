@@ -54,7 +54,8 @@ public class Excusa implements IExcusa {
 
     protected Excusa() {}
 
-    public Excusa(Empleado empleado, String texto){
+    public Excusa(Empleado empleado, TipoExcusa tipo, String texto){
+        this.tipo = tipo;
         this.empleado = empleado;
         this.texto = texto;
         this.fecha = LocalDateTime.now();
