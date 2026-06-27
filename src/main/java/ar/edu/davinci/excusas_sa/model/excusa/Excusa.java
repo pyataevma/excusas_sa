@@ -3,40 +3,53 @@ package ar.edu.davinci.excusas_sa.model.excusa;
 import ar.edu.davinci.excusas_sa.model.email.ConsoleEmailSender;
 import ar.edu.davinci.excusas_sa.model.email.EmailSender;
 import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
+import ar.edu.davinci.excusas_sa.model.empleado.responsable.Responsable;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Excusa implements IExcusa {
+public class Excusa implements IExcusa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private TipoExcusa tipo;
+    private String texto;
+    private LocalDateTime fecha;
+    private Boolean aceptada;
 
     @ManyToOne
     private  Empleado empleado;
 
-    private  String texto;
-    private LocalDateTime fecha;
-    private Boolean aceptada;
     @Transient
     protected EmailSender emailSender = new ConsoleEmailSender();
 
     @Override
     public boolean esTrivial() {
-        return false;
+        return this.tipo==TipoExcusa.TRIVIAL;
     }
+
     @Override
     public boolean esModerada() {
-        return false;
+        return this.tipo==TipoExcusa.MODERADA;
     }
+
     @Override
-    public boolean esCompleja() { return false; }
+    public boolean esCompleja() {
+        return this.tipo==TipoExcusa.COMPLEJA; }
     @Override
+
     public boolean esInverosimil(){
-        return false;
+        return this.tipo==TipoExcusa.INVEROSIMIL;
+    }
+
+    @Override
+    public void procesarse(Responsable responsable) {
+            String origen = responsable.getEmail();
+            String destino = this.empleado.getEmail();
+            emailSender.enviarEmail(destino, origen, "Disposición","Escusa fue aceptada");
     }
 
     protected Excusa() {}
