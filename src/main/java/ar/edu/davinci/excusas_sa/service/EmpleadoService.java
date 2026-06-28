@@ -1,5 +1,6 @@
 package ar.edu.davinci.excusas_sa.service;
 
+import ar.edu.davinci.excusas_sa.model.dto.EmpleadoCreateDTO;
 import ar.edu.davinci.excusas_sa.model.dto.EmpleadoDTO;
 import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
 import ar.edu.davinci.excusas_sa.repository.EmpleadoRepository;
@@ -24,7 +25,7 @@ public class EmpleadoService {
                 .toList();
     }
 
-    public EmpleadoDTO guardar(EmpleadoDTO dto) {
+    public EmpleadoDTO guardar(EmpleadoCreateDTO dto) {
 
         Empleado empleado = toEntity(dto);
 
@@ -35,16 +36,18 @@ public class EmpleadoService {
 
     private EmpleadoDTO toDTO(Empleado empleado) {
         return new EmpleadoDTO(
+                empleado.getId(),
                 empleado.getNombre(),
                 empleado.getEmail(),
                 empleado.getLegajo()
         );
     }
 
-    private Empleado toEntity(EmpleadoDTO dto) {
+    private Empleado toEntity(EmpleadoCreateDTO dto) {
         return new Empleado(
                 dto.getNombre(),
                 dto.getEmail(),
                 dto.getLegajo()
         );
-    }}
+    }
+}

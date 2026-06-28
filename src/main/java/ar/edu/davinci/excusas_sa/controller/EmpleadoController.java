@@ -1,5 +1,6 @@
 package ar.edu.davinci.excusas_sa.controller;
 
+import ar.edu.davinci.excusas_sa.model.dto.EmpleadoCreateDTO;
 import ar.edu.davinci.excusas_sa.model.dto.EmpleadoDTO;
 import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
 import ar.edu.davinci.excusas_sa.service.EmpleadoService;
@@ -26,7 +27,7 @@ public class EmpleadoController {
     }
 
     @PostMapping
-    public EmpleadoDTO createEmpleado(@RequestBody EmpleadoDTO dto) {
+    public EmpleadoDTO createEmpleado(@RequestBody EmpleadoCreateDTO dto) {
         return empleadoService.guardar(dto);
     }
 }

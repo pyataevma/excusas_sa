@@ -1,17 +1,14 @@
 package ar.edu.davinci.excusas_sa.model.dto;
 
-public class EmpleadoDTO {
-
-    private Long id;
+public class EmpleadoCreateDTO {
     private String nombre;
     private String email;
     private String legajo;
 
-    public EmpleadoDTO() {
+    public EmpleadoCreateDTO() {
     }
 
-    public EmpleadoDTO(Long id, String nombre, String email, String legajo) {
-        this.id = id;
+    public EmpleadoCreateDTO(String nombre, String email, String legajo) {
         this.nombre = nombre;
         this.email = email;
         this.legajo = legajo;
@@ -27,9 +24,5 @@ public class EmpleadoDTO {
 
     public String getLegajo() {
         return legajo;
-    }
-
-    public Long getId() {
-        return id;
     }
 }
