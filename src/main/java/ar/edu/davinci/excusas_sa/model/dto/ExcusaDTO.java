@@ -15,13 +15,13 @@ public class ExcusaDTO {
 
         protected ExcusaDTO() {}
 
-        public ExcusaDTO(Long id, EmpleadoDTO empleadoDTO, TipoExcusa tipo, String texto){
+        public ExcusaDTO(Long id, EmpleadoDTO empleadoDTO, TipoExcusa tipo, String texto, LocalDateTime fecha, Boolean aceptada) {
             this.id = id;
             this.tipo = tipo;
             this.empleadoDTO = empleadoDTO;
             this.texto = texto;
-            this.fecha = LocalDateTime.now();
-            this.aceptada = false;
+            this.fecha = fecha;
+            this.aceptada = aceptada;
         }
 
     public Long getId() {
@@ -47,4 +47,5 @@ public class ExcusaDTO {
     public Boolean getAceptada() {
         return aceptada;
     }
+
 }

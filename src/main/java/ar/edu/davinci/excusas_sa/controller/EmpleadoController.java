@@ -2,10 +2,7 @@ package ar.edu.davinci.excusas_sa.controller;
 
 import ar.edu.davinci.excusas_sa.model.dto.EmpleadoCreateDTO;
 import ar.edu.davinci.excusas_sa.model.dto.EmpleadoDTO;
-import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
 import ar.edu.davinci.excusas_sa.service.EmpleadoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +11,6 @@ import java.util.List;
 @RequestMapping("/empleados")
 public class EmpleadoController {
 
-    //@Autowired
     private EmpleadoService empleadoService;
 
     public EmpleadoController(EmpleadoService empleadoService) {
@@ -31,7 +27,6 @@ public class EmpleadoController {
         return empleadoService.guardar(dto);
     }
 }
-
 
 
 //        //Endpoint: http + URL

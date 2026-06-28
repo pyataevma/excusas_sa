@@ -1,8 +1,7 @@
 package ar.edu.davinci.excusas_sa.controller;
 
-import ar.edu.davinci.excusas_sa.model.excusa.Excusa;
-import ar.edu.davinci.excusas_sa.repository.EmpleadoRepository;
-import ar.edu.davinci.excusas_sa.repository.ExcusaRepository;
+import ar.edu.davinci.excusas_sa.model.dto.ExcusaCreateDTO;
+import ar.edu.davinci.excusas_sa.model.dto.ExcusaDTO;
 import ar.edu.davinci.excusas_sa.service.ExcusaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +20,12 @@ public class ExcusaController {
     }
 
     @GetMapping
-    public List<Excusa>  getAllExcusas() {
+    public List<ExcusaDTO>  getAllExcusas() {
         return excusaService.obtenerTodos();
     }
 
     @PostMapping
-    public Excusa create(@RequestBody Excusa excusa) {
+    public ExcusaDTO create(@RequestBody ExcusaCreateDTO excusa) {
         return excusaService.guardar(excusa);
     }
 }

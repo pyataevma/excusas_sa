@@ -18,7 +18,7 @@ public class Excusa implements IExcusa {
     private TipoExcusa tipo;
     private String texto;
     private LocalDateTime fecha;
-    private Boolean aceptada;
+    private boolean aceptada;
 
     @ManyToOne
     private  Empleado empleado;
@@ -70,5 +70,25 @@ public class Excusa implements IExcusa {
 
     public Empleado getEmpleado() {
         return empleado;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public TipoExcusa getTipo() {
+        return tipo;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public Boolean getAceptada() {
+        return aceptada;
     }
 }
