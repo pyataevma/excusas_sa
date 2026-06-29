@@ -6,6 +6,7 @@ import ar.edu.davinci.excusas_sa.service.ExcusaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -27,5 +28,19 @@ public class ExcusaController {
     @PostMapping
     public ExcusaDTO create(@RequestBody ExcusaCreateDTO excusa) {
         return excusaService.guardar(excusa);
+    }
+
+    @GetMapping("/{legajo}")
+    public List<ExcusaDTO> getByLegajo(@PathVariable String legajo) {
+        return excusaService.obtenerPorLegajo(legajo);
+    }
+
+    @GetMapping("/busqueda")
+    public List<ExcusaDTO> buscar(
+            @RequestParam String legajo,
+            @RequestParam(required = false) LocalDate fechaDesde,
+            @RequestParam(required = false) LocalDate fechaHasta) {
+
+        return excusaService.buscar(legajo, fechaDesde, fechaHasta);
     }
 }

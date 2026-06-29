@@ -1,16 +1,16 @@
 package ar.edu.davinci.excusas_sa.model.dto;
 
-import ar.edu.davinci.excusas_sa.model.excusa.TipoExcusa;
+//import ar.edu.davinci.excusas_sa.model.excusa.TipoExcusa;
 
 public class ExcusaCreateDTO {
 
     private Long empleadoId;
-    private TipoExcusa tipo;
+    private String tipo;
     private String texto;
 
     protected ExcusaCreateDTO() {}
 
-    public ExcusaCreateDTO(Long empleadoId, TipoExcusa tipo, String texto){
+    public ExcusaCreateDTO(Long empleadoId, String tipo, String texto){
         this.tipo = tipo;
         this.empleadoId = empleadoId;
         this.texto = texto;
@@ -20,7 +20,7 @@ public class ExcusaCreateDTO {
         return empleadoId;
     }
 
-    public TipoExcusa getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
