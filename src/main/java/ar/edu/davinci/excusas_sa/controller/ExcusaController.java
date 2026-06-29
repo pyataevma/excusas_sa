@@ -48,4 +48,11 @@ public class ExcusaController {
     public List<ExcusaDTO> getRachazadas() {
         return excusaService.obtenerRechazadas();
     }
+
+    @DeleteMapping("/eliminar")
+    public int eliminar(
+            @RequestParam LocalDate fechaLimite) {
+
+        return excusaService.eliminar(fechaLimite);
+    }
 }

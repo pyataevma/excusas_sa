@@ -10,9 +10,11 @@ import ar.edu.davinci.excusas_sa.repository.EmpleadoRepository;
 import ar.edu.davinci.excusas_sa.repository.ExcusaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -80,6 +82,14 @@ public class ExcusaService {
                 .stream()
                 .map(excusaMapper::toDTO)
                 .toList();
+    }
+
+    @Transactional
+    public int eliminar(LocalDate fechaLimite) {
+
+        LocalDateTime fecha = fechaLimite.atStartOfDay();
+
+        return excusaRepository.deleteByFechaBefore(fecha);
     }
 
     private boolean cumpleFiltroFecha(
