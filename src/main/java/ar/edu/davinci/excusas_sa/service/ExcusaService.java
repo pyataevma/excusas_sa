@@ -74,6 +74,14 @@ public class ExcusaService {
                 .toList();
     }
 
+    public List<ExcusaDTO> obtenerRechazadas() {
+
+        return excusaRepository.findByAceptada(false)
+                .stream()
+                .map(excusaMapper::toDTO)
+                .toList();
+    }
+
     private boolean cumpleFiltroFecha(
             Excusa excusa,
             LocalDate fechaDesde,

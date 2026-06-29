@@ -11,4 +11,8 @@ public interface ExcusaRepository extends JpaRepository<Excusa, Long> {
     default List<Excusa> findByEmpleadoLegajo(String legajo) {
         return null;
     }
+
+    default List<Excusa> findByAceptada(boolean aceptada) {
+        return null;
+    }
 }

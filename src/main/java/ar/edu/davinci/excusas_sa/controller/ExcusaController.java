@@ -43,4 +43,9 @@ public class ExcusaController {
 
         return excusaService.buscar(legajo, fechaDesde, fechaHasta);
     }
+
+    @GetMapping("/rechazadas")
+    public List<ExcusaDTO> getRachazadas() {
+        return excusaService.obtenerRechazadas();
+    }
 }
