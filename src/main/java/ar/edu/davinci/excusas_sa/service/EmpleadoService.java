@@ -1,5 +1,6 @@
 package ar.edu.davinci.excusas_sa.service;
 
+import ar.edu.davinci.excusas_sa.mapper.EmpleadoMapper;
 import ar.edu.davinci.excusas_sa.model.dto.EmpleadoCreateDTO;
 import ar.edu.davinci.excusas_sa.model.dto.EmpleadoDTO;
 import ar.edu.davinci.excusas_sa.model.empleado.Empleado;
@@ -12,42 +13,23 @@ import java.util.List;
 public class EmpleadoService {
 
     private final EmpleadoRepository repository;
+    private final EmpleadoMapper mapper;
 
-    public EmpleadoService(EmpleadoRepository repository) {
+    public EmpleadoService(EmpleadoRepository repository, EmpleadoMapper mapper) {
         this.repository = repository;
+        this.mapper = mapper;
     }
 
     public List<EmpleadoDTO> obtenerTodos() {
-
         return repository.findAll()
                 .stream()
-                .map(this::toDTO)
+                .map(empleado -> mapper.toDTO(empleado))
                 .toList();
     }
 
     public EmpleadoDTO guardar(EmpleadoCreateDTO dto) {
-
-        Empleado empleado = toEntity(dto);
-
+        Empleado empleado = mapper.toEntity(dto);
         Empleado guardado = repository.save(empleado);
-
-        return toDTO(guardado);
-    }
-
-    private EmpleadoDTO toDTO(Empleado empleado) {
-        return new EmpleadoDTO(
-                empleado.getId(),
-                empleado.getNombre(),
-                empleado.getEmail(),
-                empleado.getLegajo()
-        );
-    }
-
-    private Empleado toEntity(EmpleadoCreateDTO dto) {
-        return new Empleado(
-                dto.getNombre(),
-                dto.getEmail(),
-                dto.getLegajo()
-        );
+        return mapper.toDTO(guardado);
     }
 }

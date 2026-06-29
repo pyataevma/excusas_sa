@@ -17,4 +17,12 @@ public class Prontuario {
     }
 
     public Prontuario() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public Excusa getExcusa() {
+        return excusa;
+    }
 }
