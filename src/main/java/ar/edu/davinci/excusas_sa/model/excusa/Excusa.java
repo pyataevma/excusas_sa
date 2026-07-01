@@ -10,12 +10,12 @@ import java.time.LocalDateTime;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Excusa implements IExcusa {
+public abstract class Excusa implements IExcusa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private TipoExcusa tipo;
+   // private TipoExcusa tipo;
     private String texto;
     private LocalDateTime fecha;
     private boolean aceptada;
@@ -26,24 +26,37 @@ public class Excusa implements IExcusa {
     @Transient
     protected EmailSender emailSender = new ConsoleEmailSender();
 
+    abstract public TipoExcusa getTipo();
+
     @Override
+//    public boolean esTrivial() {
+//        return this.tipo==TipoExcusa.TRIVIAL;
+//    }
     public boolean esTrivial() {
-        return this.tipo==TipoExcusa.TRIVIAL;
+        return false;
     }
 
     @Override
+//    public boolean esModerada() {
+//        return this.tipo==TipoExcusa.MODERADA;
+//    }
     public boolean esModerada() {
-        return this.tipo==TipoExcusa.MODERADA;
+        return false;
     }
 
     @Override
+//    public boolean esCompleja() { return this.tipo==TipoExcusa.COMPLEJA; }
     public boolean esCompleja() {
-        return this.tipo==TipoExcusa.COMPLEJA; }
-    @Override
-
-    public boolean esInverosimil(){
-        return this.tipo==TipoExcusa.INVEROSIMIL;
+        return false;
     }
+
+    @Override
+    public boolean esInverosimil() {
+        return false;
+    }
+//    public boolean esInverosimil(){
+//        return this.tipo==TipoExcusa.INVEROSIMIL;
+//    }
 
     @Override
     public void procesarse(Responsable responsable) {
@@ -54,8 +67,8 @@ public class Excusa implements IExcusa {
 
     protected Excusa() {}
 
-    public Excusa(Empleado empleado, TipoExcusa tipo, String texto){
-        this.tipo = tipo;
+    public Excusa(Empleado empleado, String texto){
+        //this.tipo = tipo;
         this.empleado = empleado;
         this.texto = texto;
         this.fecha = LocalDateTime.now();
@@ -74,10 +87,6 @@ public class Excusa implements IExcusa {
 
     public Long getId() {
         return id;
-    }
-
-    public TipoExcusa getTipo() {
-        return tipo;
     }
 
     public String getTexto() {

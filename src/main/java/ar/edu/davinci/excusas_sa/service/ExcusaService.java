@@ -1,5 +1,6 @@
 package ar.edu.davinci.excusas_sa.service;
 
+import ar.edu.davinci.excusas_sa.factory.ExcusaFactory;
 import ar.edu.davinci.excusas_sa.mapper.ExcusaMapper;
 import ar.edu.davinci.excusas_sa.model.dto.ExcusaCreateDTO;
 import ar.edu.davinci.excusas_sa.model.dto.ExcusaDTO;
@@ -23,12 +24,14 @@ public class ExcusaService {
     private final ExcusaRepository excusaRepository;
     private final EmpleadoRepository empleadoRepository;
     private final ExcusaMapper excusaMapper;
+    private final ExcusaFactory excusaFactory;
 
     public ExcusaService(ExcusaRepository excusaRepository,
-                         EmpleadoRepository empleadoRepository, ExcusaMapper excusaMapper) {
+                         EmpleadoRepository empleadoRepository, ExcusaMapper excusaMapper, ExcusaFactory excusaFactory) {
         this.excusaRepository = excusaRepository;
         this.empleadoRepository = empleadoRepository;
         this.excusaMapper = excusaMapper;
+        this.excusaFactory = excusaFactory;
     }
 
     public List<ExcusaDTO> obtenerTodos() {
@@ -51,9 +54,9 @@ public class ExcusaService {
         }
         Empleado empleado = empleadoRepository.findById(dto.getEmpleadoId())
                 .orElseThrow(() -> new RuntimeException("Empleado no encontrado"));
-        Excusa excusa = new Excusa(
-                empleado,
+        Excusa excusa = excusaFactory.crear(
                 tipo,
+                empleado,
                 dto.getTexto()
         );
         Excusa guardada = excusaRepository.save(excusa);

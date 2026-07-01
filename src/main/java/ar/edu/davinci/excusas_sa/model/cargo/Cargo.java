@@ -1,4 +1,4 @@
-package ar.edu.davinci.excusas_sa.model.empleado.responsable.cargo;
+package ar.edu.davinci.excusas_sa.model.cargo;
 
 import ar.edu.davinci.excusas_sa.model.excusa.TipoExcusa;
 import jakarta.persistence.*;
@@ -19,4 +19,16 @@ public class Cargo {
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Set<TipoExcusa> motivosQueProcesa = new HashSet<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Set<TipoExcusa> getMotivosQueProcesa() {
+        return motivosQueProcesa;
+    }
 }
